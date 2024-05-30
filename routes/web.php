@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\homepagecontroller;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[homepagecontroller::class, 'index']);
+Route::get('/pdf',[homepagecontroller::class, 'pdf']);
+
+
+// routes/web.php
+Route::get('/pdf-viewer', function () {
+    $path = storage_path('app/public/materi1.pdf'); // Sesuaikan dengan path file PDF Anda
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    
+
+    return response()->file($path);
+})->middleware('pdf.viewer');
+
+
