@@ -1,6 +1,6 @@
 @extends('user.template.appuser')
 
-@section('title', 'Dashboard - TrackMyShipment')
+@section('title', 'homepage')
 
 @section('content')
 
@@ -35,8 +35,8 @@
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="{{asset('user/img/carousel-1.jpg')}}" alt="">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="{{url('pdf-viewer')}}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Detail Materi</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Kuis</a>
+                                <a href="{{url('pdf/'.$kr->ID_MATERI)}}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ">Detail Materi</a>
+  
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
