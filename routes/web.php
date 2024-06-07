@@ -3,8 +3,7 @@
 use App\Http\Controllers\homepagecontroller;
 use App\Http\Controllers\matericontroller;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Response;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +21,8 @@ Route::get('/pdf/{id}',[homepagecontroller::class, 'pdf']);
 Route::get('/kuis/{id}',[homepagecontroller::class, 'kuis']);
 Route::post('/submit/{id}',[homepagecontroller::class, 'submitKuis']);
 Route::get('/materi',[matericontroller::class,'index']);
-
-// routes/web.php
-// Route::get('/pdf-viewer', function () {
-//     $path = storage_path('app/public/materi1.pdf'); // Sesuaikan dengan path file PDF Anda
-
-//     if (!File::exists($path)) {
-//         abort(404);
-//     }
-
-    
-
-//     return response()->file($path);
-// })->middleware('pdf.viewer');get
+Route::get('/materi/tambah',[matericontroller::class,'show']);
+Route::post('/materi/insert',[matericontroller::class,'insert']);
 
 
 

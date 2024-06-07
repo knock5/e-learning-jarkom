@@ -26,7 +26,10 @@
     <script src="{{asset('admin/plugins/tables/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('admin/plugins/tables/js/datatable/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('admin/plugins/tables/js/datatable-init/datatable-basic.min.js')}}"></script>
-
+    
+    <script src="{{asset('admin/plugins/jquery-steps/build/jquery.steps.min.js')}}"></script>
+    <script src="{{asset('admin/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('admin/js/plugins-init/jquery-steps-init.js')}}"></script>
 </body>
 
 </html>

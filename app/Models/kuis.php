@@ -9,8 +9,8 @@ class kuis extends Model
 {
     use HasFactory;
     protected $table = 'quiz';
-    public $timestamp = false;
-    protected $fillable = ['ID_MATERI','PERTANYAAN','JAWABAN1','JAWABAN2','JAWABAN3','JAWABAN_BENAR'];
+    public $timestamps = false;
+    protected $fillable = ['ID_MATERI','PERTANYAAN','JAWABANA','JAWABANB','JAWABANC','JAWABAN_BENAR'];
 
     public function materi()
     {

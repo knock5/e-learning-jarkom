@@ -10,7 +10,7 @@ class materi extends Model
     use HasFactory;
     protected $table = 'materi';
     protected $primaryKey = 'ID_MATERI';
-    public $timestamp = false;
+    public $timestamps = false;
     protected $fillable = ['NAMA_MATERI','ISI_MATERI'];
 
     public function user(){

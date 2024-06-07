@@ -18,8 +18,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Table</h4>
+                    <h4 class="card-title">Data Kuis</h4>
                     <div class="table-responsive">
+                        <h3><a href="{{url('materi/tambah')}}" class="btn btn-primary">Tambah</a></h3>
                         <table class="table table-striped table-bordered zero-configuration">
                             <thead>
                                 <tr>
@@ -42,7 +43,7 @@
                                         <i class="fas fa-trash"></i>
                                     </button> 
                                     <div class="modal fade" id="basicModal{{$mt->ID_MATERI}}">
-                                        <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-dialog modal-lg " role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Detail Materi</h5>
