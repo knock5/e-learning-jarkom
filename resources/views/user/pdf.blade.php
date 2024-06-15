@@ -7,9 +7,14 @@
         display: flex;
         justify-content: center;
     }
-    td{
+    /* td{
         text-align: center;
+        border: 1px solid black;
     }
+    th{
+        text-align: center;
+        border: 1px solid black;
+    } */
 </style>
    <div class="container-fluid">
     <div class="py-3">
@@ -30,17 +35,23 @@
             <a href="{{url('kuis/'.$pdf->ID_MATERI)}}" class="btn btn-primary px-3 mt-2">Halaman Kuis</a>
             </div>
         </div>
-        <div class="col-12 mt-3">
+        
+        <div class="col-12 mt-3 ">
             <h2 class="text-center">Riwayat Kuis Anda</h2>
         </div>
         <div class="col-12 col-md-4 mt-3 mx-auto">
-        <div class="table table-responsive">
-                <table class="table table-hover">
-                    <thead>
+            @if($skor->count() == 0)
+           
+            @else
+        <div class="table-responsive " >
+                <table class="table text-center table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
                         <th>No.</th>
                         <th>Waktu</th>
                         <th>jumlah nilai</th>
                         <th>Jumlah soal</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($skor as $sk)
@@ -55,7 +66,9 @@
                 </table>
 
             </div> 
+            @endif
         </div>
+        
     </div>
 
    </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
@@ -41,29 +40,27 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center" href="#"> <h4>E-Learning Jaringan Komputer</h4></a>
+                                
+                                    <a class="text-center" #> <h4>Rosella</h4></a>
         
-                                <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('login') }}">
+                                <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('register') }}">
                                 @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror"  name="email" value="{{ old('email') }}" placeholder="Email">
-                                        @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   placeholder="Name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password">
-                                        @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  placeholder="Email" required>
                                     </div>
-                                    <button type="submit" class="btn login-form__btn submit w-100">Login</button>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" name="password_confirmation" required>
+                                    </div>
+                                    <button type="submit" class="btn login-form__btn submit w-100">Sign in</button>
                                 </form>
-                             
+                                  
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,6 +82,7 @@
     <script src="{{asset('admin/js/styleSwitcher.js')}}"></script>
 </body>
 </html>
+
 
 
 

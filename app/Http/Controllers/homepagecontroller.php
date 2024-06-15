@@ -6,7 +6,7 @@ use App\Models\kuis;
 use App\Models\skor;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Illuminate\Support\Facades\Auth;
 
 class homepagecontroller extends Controller
 {
@@ -19,17 +19,20 @@ class homepagecontroller extends Controller
     public function pdf( $id)
     {
         // $pdf = 'file/materi1.pdf';
-        $skor = skor::where('ID_MATERI', $id)->get();
+        $user = Auth::user()->id;
+        $skor = skor::where('ID_MATERI', $id)->where('ID_USER',$user)->get();
         $pdf = materi::find($id);
         return view('user.pdf', compact('pdf','skor'));
     }
     public function kuis($id)
     {
+           
         $kuis = kuis::where('ID_MATERI', $id)->get();
         return view('user.kuis' , compact('kuis'));
     }
     public function submitKuis(Request $request, string $id)
     {
+        $user = Auth::user()->id;
         $questions = kuis::where('ID_MATERI', $id)->get();
         $answers = $request->answers;
         $score = 0;
@@ -49,7 +52,7 @@ class homepagecontroller extends Controller
         $correctAnswersCount = $score / $pointsPerQuestion;
         $message = "Anda menjawab benar $correctAnswersCount dari " . count($questions) . " pertanyaan. Skor anda adalah $score.";
         $skor = skor::create([
-            'ID_AKUN' => 1,
+            'ID_USER' => $user,
             'ID_MATERI' =>  $id,
             'SKOR' => $score,
             'soal'=>count($questions),

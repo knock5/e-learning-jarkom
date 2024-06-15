@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
+    <title>@yield('title')</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Custom Stylesheet -->
@@ -47,7 +47,8 @@
                     <b class="logo-abbr"><img src="{{asset('admin/images/logo.png')}}" alt=""> </b>
                     <span class="logo-compact"><img src="{{asset('admin/images/logo-compact.png')}}" alt=""></span>
                     <span class="brand-title">
-                        <img src="{{asset('admin/images/logo-text.png')}}" alt="">
+                        <!-- <img src="{{asset('admin/images/logo-text.png')}}" alt=""> -->
+                        <h3 class="text-white">E-Learning</h3>
                     </span>
                 </a>
             </div>
@@ -83,8 +84,12 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                       
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="{{ route('logout') }}"  onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
                                 </div>
                             </div>
                         </li>
@@ -102,16 +107,18 @@
         <div class="nk-sidebar">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li class="nav-label">Dashboard</li>
-                    <li>
-                        <a class="has-arrow" href="" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                     <li class="nav-label"></li>
+                <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="fas fa-database"></i><span class="nav-text">Manage Data</span>
                         </a>
-                       
+                        <ul aria-expanded="false">
+                            <li><a href="{{ url('materi') }}">Materi</a></li>
+                            @if(Auth::user()->level == 'admin')
+                            <li><a href="{{ url('akun') }}">Mahasiswa</a></li>
+                            @endif
+                        </ul>
                     </li>
-                   
-                  
-                 
                 </ul>
             </div>
         </div>

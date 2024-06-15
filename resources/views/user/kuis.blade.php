@@ -43,6 +43,7 @@
 
 <div class="container-fluid">
     <div class="row">
+        <h2><a href="{{ url('/pdf/'.$kuis->first()->ID_MATERI) }}" class="btn btn-primary px-3"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a></h2>
         <div class="col-12">
             <form action="{{url('submit/'.$kuis->first()->ID_MATERI)}}" method="POST">
                 @csrf

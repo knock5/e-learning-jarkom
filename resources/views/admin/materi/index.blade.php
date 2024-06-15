@@ -18,10 +18,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Kuis</h4>
-                    <div class="table-responsive">
-                        <h3><a href="{{url('materi/tambah')}}" class="btn btn-primary">Tambah</a></h3>
-                        <table class="table table-striped table-bordered zero-configuration">
+                    <h4 class="card-title">Data Materi dan Kuis</h4>
+                    <h3><a href="{{url('materi/tambah')}}" class="btn btn-primary">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a></h3>
+                    <div class="table-responsive" style="background-color: #F5F5F5;">
+                        
+                        <table class="table table-striped table-bordered zero-configuration" >
                             <thead>
                                 <tr>
                                     <th>No.</th>
@@ -36,10 +37,11 @@
                                     <td>{{$mt->NAMA_MATERI}}</td>
                                     <td>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicModal{{$mt->ID_MATERI}}">
                                 <i class="fas fa-eye"></i></button>
-                                    <a href=""><button
+                                    <a href="{{url('materi/lihat/'.$mt->ID_MATERI)}}"><button
                                             class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button></a>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-sm btn-danger">
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#exampleModal1{{$mt->ID_MATERI}}">
                                         <i class="fas fa-trash"></i>
                                     </button> 
                                     <div class="modal fade" id="basicModal{{$mt->ID_MATERI}}">
@@ -107,6 +109,30 @@
                     </div>
                                                 <div class="modal-footer">
                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal1{{$mt->ID_MATERI}}" tabindex="-1" -->
+                                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Yakin Hapus data materi dan kuis yang berkaitan dengan {{$mt->NAMA_MATERI}} ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Batal</button>
+                                                    <a href="{{ url('materi/hapus/'. $mt->ID_MATERI) }}"><button
+                                                            type="button" class="btn btn-danger">Hapus</button></a>
+
                                                 </div>
                                             </div>
                                         </div>

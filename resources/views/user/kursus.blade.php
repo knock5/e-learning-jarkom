@@ -33,11 +33,17 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{asset('user/img/carousel-1.jpg')}}" alt="">
+                        @if (empty($kr->foto))
+                            <img class="img-fluid" src="{{asset('user/img/carousel-1.jpg')}}" alt="" style="aspect-ratio: 16/9; object-fit: cover;">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                 <a href="{{url('pdf/'.$kr->ID_MATERI)}}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ">Detail Materi</a>
-  
                             </div>
+                            @else
+                            <img class="img-fluid" src="{{asset('images/'.$kr->foto)}}" alt="" style="aspect-ratio: 16/9; object-fit: cover;">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{{url('pdf/'.$kr->ID_MATERI)}}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ">Detail Materi</a>
+                            </div>
+                            @endif
                         </div>
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-0"></h3>

@@ -9,6 +9,7 @@ class kuis extends Model
 {
     use HasFactory;
     protected $table = 'quiz';
+    protected $primaryKey = 'ID_QUIZ';
     public $timestamps = false;
     protected $fillable = ['ID_MATERI','PERTANYAAN','JAWABANA','JAWABANB','JAWABANC','JAWABAN_BENAR'];
 

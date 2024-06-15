@@ -3,7 +3,7 @@
 @section('content')
 <style>
     #container {
-        max-width: 550px;  
+        max-width: 600px;  
     }
 
     .step-container {
@@ -53,6 +53,10 @@
     </div>
 
     <div class="container-fluid">
+        <h3 class="ml-3 ">Tambah Materi</h3>
+        <div class="py-1 ml-3">
+        <a href="{{url('materi')}}" class="btn btn-primary  px-3"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
+        </div>
         <div id="container" class="container mt-5">
             <div class="progress px-1" style="height: 3px;">
                 <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -72,6 +76,10 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">File Materi .pdf</span>
                         <input type="file" class="form-control" name="GAMBAR_PRODUK" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Gambar Materi</span>
+                        <input type="file" class="form-control" name="foto_materi" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <button type="button" class="btn btn-primary next-step">Selanjutnya</button>
                 </div>

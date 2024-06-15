@@ -50,7 +50,12 @@
     <span class=" mb-0  h1 text-primary">E-Learning Jaringan Komputer</span>
     </div>
     <div class="py-3">
-      <a href="" class="btn btn-primary rounded">logOut</a>
+      <a href="{{ route('logout') }}" class="btn btn-primary rounded" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
     </div>
   </div>
 </nav>
