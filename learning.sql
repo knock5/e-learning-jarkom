@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 07:05 AM
+-- Generation Time: Jun 18, 2024 at 04:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,7 @@ INSERT INTO `materi` (`ID_MATERI`, `NAMA_MATERI`, `ISI_MATERI`, `foto`) VALUES
 (3, 'Pengantar Jaringan Komputer dan Internet', 'materi3.pdf', '1718426584_foto.jpg'),
 (4, 'Pengantar Jaringan Komputer: Konsep Dasar dan Implementasi', 'materi4.pdf', '1718427095_foto.jpg'),
 (5, 'JARINGAN KOMPUTER', 'materi5.pdf', '1718427244_foto.jpg'),
-(9, 'percobaan', '1718425346.pdf', '1718425897_foto.jpg');
+(10, 'percobaan 1', '1718677229.pdf', '1718677229_foto.jpg');
 
 -- --------------------------------------------------------
 
@@ -114,11 +114,11 @@ INSERT INTO `quiz` (`ID_QUIZ`, `ID_MATERI`, `PERTANYAAN`, `JAWABANA`, `JAWABANB`
 (23, 5, 'Apa yang dimaksud dengan routing default?', 'Routing yang digunakan untuk jaringan dengan banyak jalur keluar.', 'Routing yang tidak memerlukan tabel routing.', 'Routing yang memerlukan update manual oleh administrator.', 'Routing yang hanya digunakan pada network stub.'),
 (24, 5, 'Protokol routing manakah yang termasuk dalam kategori Interior Gateway Protocol (IGP) dengan kemampuan Link-State?', 'RIPv1', 'EIGRP', 'BGP', 'OSPF'),
 (25, 5, 'Dalam OSPF, apa fungsi dari Designated Router (DR)?', 'Menjadi jalur utama untuk semua data yang masuk.', 'Menghitung jarak hop untuk setiap paket.', 'Mengatur jalur keluar dari network stub.', 'Mengatur pengiriman informasi multicast dalam jaringan multiaccess.'),
-(36, 9, 'qw', '2', '1', '1', '1'),
-(37, 9, '23', '1', '1', '23', '23'),
-(38, 9, '2', '23', '23', '23', '23'),
-(39, 9, '23', '23', '23', '23', '23'),
-(40, 9, '23', '23', '23', '23', '23');
+(41, 10, '23', 'w', 'w', 'w', 'w'),
+(42, 10, '1w213', 'we', 'w', 'w', 'w'),
+(43, 10, '22', 'w', 'w', 'w', 'w'),
+(44, 10, 'e', 'q', 'q', 'w', 'w'),
+(45, 10, '23', 'w', 'w', 'w', 'w');
 
 -- --------------------------------------------------------
 
@@ -134,13 +134,6 @@ CREATE TABLE `skor` (
   `waktu` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `soal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `skor`
---
-
-INSERT INTO `skor` (`ID_SKOR`, `ID_USER`, `ID_MATERI`, `SKOR`, `waktu`, `soal`) VALUES
-(5, 1, 1, 40, '2024-06-14 03:22:26', 5);
 
 -- --------------------------------------------------------
 
@@ -165,10 +158,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$12$7uhbrcbJLRL/SL46hZzZnewwIXs1qI4SrjrARGrtYAg5nqoxETahW', 'z3DwBe0IhtQCygdiZRKNgZV1k5mSFFvxH4SNcISECJ52fN4v3xzpdIdu2z5G', '2024-06-11 20:00:49', '2024-06-11 20:00:49', 'admin'),
-(2, 'dosen', 'dosen@gmail.com', NULL, '$2y$12$1rvINvkM1Cz8ioJGDoyj4uqyWznHLXLuv8xlYY9sizxMXSStT.ODW', 'McrWZaAbW34BgTdD6Bmb3HOMTZBoObEqobCNYAaa4Zr2LdWspzb335ot6nf3', '2024-06-13 03:14:43', '2024-06-13 03:14:43', 'dosen'),
-(3, 'qq', 'w@gmail.com', NULL, '$2y$12$tpuMC3PlQpiumejUvp0Hb.6gZlqAg4G9YC7mQ9pxIHhbocTMnZSiq', NULL, NULL, NULL, 'dosen'),
-(4, 'huda', 'huda@gmail.com', NULL, '$2y$12$wpIIziarIClm8QqbSPTR4e88pVmN84UxT6X4ReEJddlwaF3OgYnHi', NULL, NULL, NULL, 'user');
+(2, 'Admin', 'admin@gmail.com', NULL, '$2y$12$1rvINvkM1Cz8ioJGDoyj4uqyWznHLXLuv8xlYY9sizxMXSStT.ODW', '', '2024-06-13 03:14:43', '2024-06-13 03:14:43', 'admin'),
+(4, 'huda', 'huda@gmail.com', NULL, '$2y$12$wpIIziarIClm8QqbSPTR4e88pVmN84UxT6X4ReEJddlwaF3OgYnHi', NULL, NULL, NULL, 'user'),
+(5, 'dosen', 'dosen@gmail.com', NULL, '$2y$12$J7VQF1GyCv9EYDNV18gfKOvrfIv5KURBkqHQFrU9Zjcd38MN027dq', NULL, NULL, NULL, 'dosen');
 
 --
 -- Indexes for dumped tables
@@ -216,25 +208,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `materi`
 --
 ALTER TABLE `materi`
-  MODIFY `ID_MATERI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_MATERI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `ID_QUIZ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID_QUIZ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `skor`
 --
 ALTER TABLE `skor`
-  MODIFY `ID_SKOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_SKOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

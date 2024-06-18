@@ -1,5 +1,5 @@
 @extends('admin.template.appadmin')
-
+@section('title', 'Tambah Data Materi dan Kuis')
 @section('content')
 <style>
     #container {

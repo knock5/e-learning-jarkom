@@ -1,4 +1,5 @@
 @extends('admin.template.appadmin')
+@section('title', 'Data Materi dan Kuis')
 @section('content')
 
 <div class="content-body">
@@ -18,7 +19,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Materi dan Kuis</h4>
+                    <h4 class="card-title">Data Akun</h4>
                     <h3><a href="{{url('materi/tambah')}}" class="btn btn-primary">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a></h3>
                     <div class="table-responsive" style="background-color: #F5F5F5;">
                         

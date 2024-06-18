@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Models\users;
 use App\Models\User;
+use App\Models\skor;
 use Illuminate\Support\Facades\Hash;
 class akunkontroller extends Controller
 {
     //
     public function index()
     {
-        $akun = users::all();
+        $akun = User::whereIn('level', ['dosen', 'user'])->get();
         return view('admin.akun.index', compact('akun'));
     }
     public function show()
@@ -21,6 +22,12 @@ class akunkontroller extends Controller
     }
     public function tambah(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'level' => ['required', 'not_in:0'],
+        ]);
         // $akun = users::all();
         // return view('admin.akun.pp', compact('akun'));
         $akun  = new users;
@@ -33,19 +40,10 @@ class akunkontroller extends Controller
     }
     public function hapus($id)
     {
-        $akun = User::find($id);
-
-        if ($akun) {
-            // Hapus semua skor terkait jika ada
-            $akun->skors()->delete();
-
-            // Hapus akun
-            $akun->delete();
-
-            return redirect('/akun')->with('success', 'Data Berhasil Dihapus');
-        } else {
-            return redirect('/akun')->with('error', 'Data Tidak Ditemukan');
-        }
+        skor::where('ID_USER', $id)->delete();
+        User::find($id)->delete();
+        
+    return redirect('/akun')->with('success', 'Data Berhasil Dihapus');  
     }
    
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\kuis;
 use App\Models\materi;
+use App\Models\skor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -144,6 +145,7 @@ class matericontroller extends Controller
     }
     public function hapus($id)
     {
+        skor::where('ID_MATERI', $id)->delete();
         kuis::where('ID_MATERI',$id)->delete();
         materi::where('ID_MATERI',$id)->delete();
         

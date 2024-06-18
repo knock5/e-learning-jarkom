@@ -1,5 +1,5 @@
 @extends('admin.template.appadmin')
-
+@section('title', 'Edit Data Materi dan Kuis')
 @section('content')
 <style>
     #container {
@@ -80,6 +80,7 @@
                         <input type="file" class="form-control" name="GAMBAR_PRODUK" aria-label="Gambar Produk" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
+                        <span class="input-group-text"><img src="{{asset('images/'.$materi->foto)}}" alt="" width="50px" style="aspect-ratio: 16/9; object-fit: cover;"></span>
                         <span class="input-group-text" id="basic-addon1">Gambar Materi</span>
                         <input type="file" class="form-control" name="foto_materi" value="{{ $materi->foto }}" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>

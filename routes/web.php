@@ -37,7 +37,7 @@ Route::middleware(['auth', 'user'])->group( function () {
     Route::get('/akun',[akunkontroller::class, 'index']);
     Route::get('/akun/tambah',[akunkontroller::class, 'show']); 
     Route::post('/akun/insert',[akunkontroller::class, 'tambah']); 
-    Route::delete('/akun/hapus/{id}',[akunkontroller::class, 'hapus']);
+    Route::get('/akun/hapus/{id}',[akunkontroller::class, 'hapus']);
 
 });
 

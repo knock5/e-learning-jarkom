@@ -1,4 +1,5 @@
 @extends('admin.template.appadmin')
+@section('title', 'Data Akun')
 @section('content')
 
 <div class="content-body">
@@ -53,12 +54,12 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Yakin Hapus Data {{ $ak->name }} ?
+                                                    Yakin Hapus Data Akun bernama {{ $ak->name }} ?
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-dismiss="modal">Batal</button>
-                                                    <a href="{{ url('akun/hapus'. $ak->id) }}"><button
+                                                    <a href="{{ url('akun/hapus/'. $ak->id) }}"><button
                                                             type="button" class="btn btn-danger">Hapus</button></a>
 
                                                 </div>
